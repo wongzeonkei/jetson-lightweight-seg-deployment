@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Model weights and exported models
+models/pytorch/*.pt
+models/pytorch/*.pth
+models/pytorch/*.ckpt
+models/onnx/*.onnx
+models/onnx/*.onnx.*
+*.engine
+*.plan
+
+# TensorRT engines
+deploy/tensorrt/engines/
+*.engine
+
+# Runtime outputs
+outputs/
+runs/
+*.npy
+*.npz
+*.bin
+
+# Logs
+deploy/tensorrt/logs/
+*.log
+
+# Datasets / sample data
+data/samples/
+data/raw/
+data/processed/
+
+# Jetson package
+jetson_package/
+jetson_yolov8n_seg_package.tar.gz
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# CMake / C++ build artifacts
+build/
+deploy/tensorrt/cpp/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.o
+*.o.d
+*.out

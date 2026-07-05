@@ -1,0 +1,7 @@
+backend,precision,input_size,source,throughput_qps,latency_mean_ms,latency_median_ms,latency_p90_ms,latency_p95_ms,latency_p99_ms,gpu_compute_mean_ms,h2d_mean_ms,d2h_mean_ms,engine_size_mib,context_gpu_mem_mib,detections,notes
+PyTorch,FP32,320x320,ultralytics_predict,,65.3,,,,,,,,,"3 persons + 1 bus","Ultralytics Python baseline; includes framework overhead"
+ONNX Runtime,FP32,320x320,python_cuda,,5.1006,4.3566,,,,,,,,,"3 persons + 1 bus","Real image inference with ORT CUDA and custom postprocess"
+TensorRT,FP32,320x320,trtexec_random,443.99,2.30118,1.89209,3.24536,4.56024,7.44336,1.8016,0.206642,0.292939,16,19,,"Random input engine benchmark"
+TensorRT,FP16,320x320,trtexec_random,556.774,1.84072,1.52051,2.5874,3.85449,6.76123,1.34195,0.207339,0.291434,8,9,,"Random input engine benchmark"
+TensorRT,FP16,320x320,trtexec_real_input,568.083,1.80368,1.52509,2.48291,3.44849,6.6106,1.30584,0.207124,0.290717,8,9,"3 persons + 1 bus","Real bus.jpg input via --loadInputs and --exportOutput"
+TensorRT,FP16,320x320,cpp_opencv_tensorrt,,2.55225,2.22072,,,,,,,,,"3 persons + 1 bus","C++ OpenCV + TensorRT FP16 inference loop; includes H2D, executeV2, D2H and cudaDeviceSynchronize"

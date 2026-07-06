@@ -1,0 +1,3 @@
+device,backend,precision,input_size,source,throughput_qps,latency_mean_ms,latency_median_ms,latency_p99_ms,gpu_compute_mean_ms,h2d_mean_ms,d2h_mean_ms,engine_size_mb,detections,notes
+Jetson Nano B01,TensorRT,FP16,320x320,trtexec_random,55.1059,18.1339,18.1373,18.1938,17.8376,0.117225,0.179033,9.5,,"Random input benchmark with locally built TensorRT 8.2.1 engine"
+Jetson Nano B01,TensorRT,FP16,320x320,trtexec_real_input,54.7556,18.2501,18.2505,18.312,17.9533,0.11743,0.179325,9.5,"3 persons + 1 bus","Real bus.jpg input via --loadInputs and --exportOutput"

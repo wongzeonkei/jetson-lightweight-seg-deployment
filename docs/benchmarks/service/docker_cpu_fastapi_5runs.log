@@ -1,0 +1,70 @@
+===== Docker CPU FastAPI request 1 =====
+HTTP status: 200
+num_detections: 4
+latency_ms: {'preprocess': 1.363, 'inference': 25.007, 'postprocess': 32.92, 'total': 59.29, 'request_total': 69.289}
+providers: ['CPUExecutionProvider']
+
+Detections:
+{'class_id': 5, 'class_name': 'bus', 'score': 0.86823, 'box': [23, 228, 804, 746], 'mask_pixels': 257723}
+{'class_id': 0, 'class_name': 'person', 'score': 0.867838, 'box': [46, 392, 223, 906], 'mask_pixels': 56620}
+{'class_id': 0, 'class_name': 'person', 'score': 0.77433, 'box': [219, 404, 346, 860], 'mask_pixels': 34020}
+{'class_id': 0, 'class_name': 'person', 'score': 0.68741, 'box': [671, 378, 809, 870], 'mask_pixels': 20101}
+
+Saved: outputs/service_docker/fastapi_result.jpg
+Saved: outputs/service_docker/fastapi_mask.png
+===== Docker CPU FastAPI request 2 =====
+HTTP status: 200
+num_detections: 4
+latency_ms: {'preprocess': 1.209, 'inference': 25.212, 'postprocess': 34.281, 'total': 60.702, 'request_total': 70.505}
+providers: ['CPUExecutionProvider']
+
+Detections:
+{'class_id': 5, 'class_name': 'bus', 'score': 0.86823, 'box': [23, 228, 804, 746], 'mask_pixels': 257723}
+{'class_id': 0, 'class_name': 'person', 'score': 0.867838, 'box': [46, 392, 223, 906], 'mask_pixels': 56620}
+{'class_id': 0, 'class_name': 'person', 'score': 0.77433, 'box': [219, 404, 346, 860], 'mask_pixels': 34020}
+{'class_id': 0, 'class_name': 'person', 'score': 0.68741, 'box': [671, 378, 809, 870], 'mask_pixels': 20101}
+
+Saved: outputs/service_docker/fastapi_result.jpg
+Saved: outputs/service_docker/fastapi_mask.png
+===== Docker CPU FastAPI request 3 =====
+HTTP status: 200
+num_detections: 4
+latency_ms: {'preprocess': 1.193, 'inference': 24.421, 'postprocess': 32.819, 'total': 58.434, 'request_total': 68.354}
+providers: ['CPUExecutionProvider']
+
+Detections:
+{'class_id': 5, 'class_name': 'bus', 'score': 0.86823, 'box': [23, 228, 804, 746], 'mask_pixels': 257723}
+{'class_id': 0, 'class_name': 'person', 'score': 0.867838, 'box': [46, 392, 223, 906], 'mask_pixels': 56620}
+{'class_id': 0, 'class_name': 'person', 'score': 0.77433, 'box': [219, 404, 346, 860], 'mask_pixels': 34020}
+{'class_id': 0, 'class_name': 'person', 'score': 0.68741, 'box': [671, 378, 809, 870], 'mask_pixels': 20101}
+
+Saved: outputs/service_docker/fastapi_result.jpg
+Saved: outputs/service_docker/fastapi_mask.png
+===== Docker CPU FastAPI request 4 =====
+HTTP status: 200
+num_detections: 4
+latency_ms: {'preprocess': 1.247, 'inference': 20.917, 'postprocess': 34.688, 'total': 56.851, 'request_total': 66.761}
+providers: ['CPUExecutionProvider']
+
+Detections:
+{'class_id': 5, 'class_name': 'bus', 'score': 0.86823, 'box': [23, 228, 804, 746], 'mask_pixels': 257723}
+{'class_id': 0, 'class_name': 'person', 'score': 0.867838, 'box': [46, 392, 223, 906], 'mask_pixels': 56620}
+{'class_id': 0, 'class_name': 'person', 'score': 0.77433, 'box': [219, 404, 346, 860], 'mask_pixels': 34020}
+{'class_id': 0, 'class_name': 'person', 'score': 0.68741, 'box': [671, 378, 809, 870], 'mask_pixels': 20101}
+
+Saved: outputs/service_docker/fastapi_result.jpg
+Saved: outputs/service_docker/fastapi_mask.png
+===== Docker CPU FastAPI request 5 =====
+HTTP status: 200
+num_detections: 4
+latency_ms: {'preprocess': 1.206, 'inference': 19.749, 'postprocess': 38.162, 'total': 59.117, 'request_total': 69.528}
+providers: ['CPUExecutionProvider']
+
+Detections:
+{'class_id': 5, 'class_name': 'bus', 'score': 0.86823, 'box': [23, 228, 804, 746], 'mask_pixels': 257723}
+{'class_id': 0, 'class_name': 'person', 'score': 0.867838, 'box': [46, 392, 223, 906], 'mask_pixels': 56620}
+{'class_id': 0, 'class_name': 'person', 'score': 0.77433, 'box': [219, 404, 346, 860], 'mask_pixels': 34020}
+{'class_id': 0, 'class_name': 'person', 'score': 0.68741, 'box': [671, 378, 809, 870], 'mask_pixels': 20101}
+
+Saved: outputs/service_docker/fastapi_result.jpg
+Saved: outputs/service_docker/fastapi_mask.png

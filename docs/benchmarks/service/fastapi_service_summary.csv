@@ -1,0 +1,2 @@
+backend,provider,input_size,run_mode,num_runs,preprocess_ms_mean,inference_ms_mean,postprocess_ms_mean,total_ms_mean,request_total_ms_mean,detections,notes
+FastAPI Docker,CPUExecutionProvider,320x320,warm_run,5,1.244,23.061,34.574,58.879,68.887,"3 persons + 1 bus","Docker CPU FastAPI service; image upload + JSON/base64 response"

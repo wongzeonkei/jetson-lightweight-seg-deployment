@@ -83,3 +83,44 @@ deploy/tensorrt/logs/
 data/samples/
 
 To reproduce the full pipeline, place the required model weights, ONNX model, TensorRT engine, and sample image in the corresponding directories.
+
+## Stage 5: FastAPI and Docker Service Deployment
+
+This stage wraps the YOLOv8n-seg ONNX inference pipeline as a local RESTful inference service using FastAPI and Docker.
+
+### Features
+
+- Image upload API based on FastAPI
+- ONNX Runtime inference backend
+- YOLOv8n-seg post-processing inside the service
+- Instance segmentation result returned as JSON
+- Result image and mask returned as base64-encoded images
+- Latency breakdown for preprocess, inference, postprocess, and end-to-end request time
+- CPU Docker deployment support
+
+### API Endpoints
+
+Health check:
+
+```bash
+curl http://127.0.0.1:8000/health
+Prediction:
+
+python service/client_test.py \
+  --url http://127.0.0.1:8000/predict \
+  --image data/samples/bus.jpg \
+  --out_dir outputs/service_docker
+Docker Build
+docker build -t yolov8n-seg-fastapi:cpu .
+Docker Run
+docker run --rm -it \
+  -p 8000:8000 \
+  -v $PWD/models/onnx:/models:ro \
+  -v $PWD/outputs/service_docker:/outputs \
+  yolov8n-seg-fastapi:cpu
+Docker CPU FastAPI Benchmark
+BackendProviderInput SizeRunsPreprocessInferencePostprocessModel TotalRequest TotalDetection
+FastAPI Dockerfile CPUExecutionProvider320x32051.244 ms23.061 ms34.574 ms58.879 ms68.887 ms3 persons + 1 bus
+
+Compared with the local CUDA FastAPI service, the Docker service currently uses CPUExecutionProvider, so the latency is higher but the deployment environment is more portable and reproducible.
+

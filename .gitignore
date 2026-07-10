@@ -59,3 +59,6 @@ Makefile
 *.o
 *.o.d
 *.out
+
+# Local PTQ calibration datasets
+/data/calib/

@@ -1,0 +1,18 @@
+INT8 PTQ result with 1-image calibration set
+
+Calibration set:
+- data/calib/yolov8n_seg/images/bus.jpg
+
+TensorRT INT8 engine:
+- deploy/tensorrt/engines/yolov8n_seg_320_int8.engine
+- engine size: 5.5M
+- calibration cache: 13K
+
+INT8 detections on bus.jpg:
+1. person, score=0.508301, box=[51,392,211,906], mask_pixels=54925
+2. person, score=0.390137, box=[223,401,341,862], mask_pixels=31866
+3. train, score=0.261719, box=[25,229,797,734], mask_pixels=244698
+4. bus, score=0.259766, box=[17,225,797,733], mask_pixels=238746
+
+Observation:
+Compared with the FP16 TensorRT result, INT8 PTQ with only one calibration image shows significant confidence degradation, one missing person instance, and bus/train class confusion. This result is treated as INT8 pipeline validation rather than a stable deployment result.

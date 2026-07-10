@@ -1,0 +1,5 @@
+backend,precision,calibration_set,engine_size_mb,throughput_qps,mean_latency_ms,median_latency_ms,gpu_compute_ms,h2d_ms,d2h_ms,detection_result,class_match_count,mean_score_diff,mean_box_iou,mean_mask_iou,mean_mask_dice,notes
+TensorRT,FP32,none,17,443.99,2.30118,1.89209,1.8016,0.206642,0.292939,N/A,N/A,N/A,N/A,N/A,N/A,Random-input FP32 baseline
+TensorRT,FP16,none,8.8,568.083,1.80368,1.52509,1.30584,0.207124,0.290717,3 persons + 1 bus,4,0,1,1,1,FP16 reference real-input result
+TensorRT,INT8,1-image calibration,5.5,776.122,1.40225,1.37842,0.906226,0.205990,0.290032,2 persons + train/bus confusion,2,-0.444105,0.723662,0.694228,0.721250,INT8 PTQ pipeline validation but unstable output
+TensorRT,INT8,toy calibration 21 images,5.5,783.931,1.39466,1.37886,0.898582,0.206080,0.289999,3 persons + 1 bus,4,-0.111220,0.959156,0.937340,0.967460,Calibration set expansion improves INT8 consistency

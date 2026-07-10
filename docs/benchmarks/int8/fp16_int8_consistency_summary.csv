@@ -1,0 +1,3 @@
+compare_name,matched_ref_count,class_match_count,mean_score_diff,mean_box_iou,mean_mask_iou,mean_mask_dice,extra_detection_count
+INT8_1image,4,2,-0.44410523772239685,0.7236623803982568,0.6942277731010744,0.7212504355584518,0
+INT8_toycalib,4,4,-0.11121974885463715,0.9591556304129547,0.9373398318450794,0.9674603240969628,0

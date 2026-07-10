@@ -124,3 +124,38 @@ FastAPI Dockerfile CPUExecutionProvider320x32051.244 ms23.061 ms34.574 ms58.879 
 
 Compared with the local CUDA FastAPI service, the Docker service currently uses CPUExecutionProvider, so the latency is higher but the deployment environment is more portable and reproducible.
 
+
+## Stage 6: TensorRT INT8 PTQ Quantization
+
+This stage evaluates TensorRT INT8 post-training quantization for YOLOv8n-seg.
+
+### INT8 PTQ pipeline
+
+- Implemented TensorRT Python INT8 engine build script with `IInt8EntropyCalibrator2`.
+- Prepared calibration images for PTQ.
+- Built TensorRT INT8 engine and generated calibration cache.
+- Compared FP32, FP16, and INT8 TensorRT latency.
+- Compared FP16 and INT8 output consistency using class match, score difference, box IoU, mask IoU, and mask Dice.
+
+### Latency summary on RTX 3090
+
+| Precision | Calibration | Engine Size | Throughput | Mean Latency | GPU Compute |
+|---|---|---:|---:|---:|---:|
+| FP32 | None | 17 MB | 443.99 QPS | 2.301 ms | 1.802 ms |
+| FP16 | None | 8.8 MB | 568.08 QPS | 1.804 ms | 1.306 ms |
+| INT8 | 1-image | 5.5 MB | 776.12 QPS | 1.402 ms | 0.906 ms |
+| INT8 | Toy calib 21 images | 5.5 MB | 783.93 QPS | 1.395 ms | 0.899 ms |
+
+### Output consistency
+
+FP16 TensorRT output is used as the reference. The IoU and Dice below measure FP16-INT8 consistency, not ground-truth accuracy.
+
+| INT8 Setting | Class Match | Mean Score Diff | Mean Box IoU | Mean Mask IoU | Mean Mask Dice |
+|---|---:|---:|---:|---:|---:|
+| 1-image calibration | 2 / 4 | -0.4441 | 0.7237 | 0.6942 | 0.7213 |
+| Toy calibration | 4 / 4 | -0.1112 | 0.9592 | 0.9373 | 0.9675 |
+
+### Observation
+
+INT8 PTQ improves inference latency and reduces engine size, but output quality is sensitive to the calibration dataset. Using only one calibration image causes confidence degradation and class confusion, while the toy calibration set improves output consistency significantly.
+
